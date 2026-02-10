@@ -1,0 +1,60 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-make-the-app-open-on-a-dedicated-title-page-at-route-that-prominently-displays-the-project-app-name-and-the-owner-name-in-english",
+      "featureTitle": "Make the app open on a dedicated title page at route \"/\" that prominently displays the project/app name and the owner name, in English.",
+      "files": [
+        "frontend/src/App.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-18"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-the-existing-letter-by-letter-title-component-to-support-rendering-both-the-app-name-and-an-owner-name-line-subtitle-or-secondary-line-as-part-of-the-title-page-hero-content",
+      "featureTitle": "Update the existing letter-by-letter title component to support rendering both the app name and an owner-name line (subtitle or secondary line) as part of the title-page hero content.",
+      "files": [
+        "frontend/src/components/landing/LetterByLetterTitle.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-19"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-provide-a-clear-non-scroll-gated-way-to-proceed-from-the-title-page-to-the-existing-gallery-page-gallery-without-reintroducing-scroll-to-enter-gating",
+      "featureTitle": "Provide a clear, non-scroll-gated way to proceed from the title page to the existing gallery page (\"/gallery\") without reintroducing scroll-to-enter gating.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/LandingPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-20"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

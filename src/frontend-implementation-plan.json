@@ -1,0 +1,60 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Add dedicated title page with app/owner hero and gallery navigation",
+  "requirements": [
+    {
+      "id": "REQ-18",
+      "summary": "Make the app open on a dedicated title page at route \"/\" showing app name and owner name in English.",
+      "acceptanceCriteria": [
+        "When the app loads, the first screen shown is the title page at route \"/\" (not the gallery).",
+        "The title page shows the app name \"ANIMEXIS\" prominently.",
+        "The title page shows the owner name prominently (not only in the footer) in English (e.g., \"Created by Ashwath\")."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Update client-side routing so initial render honors \"/\" as the default title page (instead of defaulting to \"/gallery\"), and keep \"/gallery\" reachable via navigation; ensure the displayed view matches the browser path and updates the path on navigation."
+        }
+      ]
+    },
+    {
+      "id": "REQ-19",
+      "summary": "Extend the existing letter-by-letter title component to render both the app name and an owner-name line, with reduced-motion-safe behavior.",
+      "acceptanceCriteria": [
+        "The title (\"ANIMEXIS\") still renders with the existing letter-by-letter reveal behavior (or an equivalent reduced-motion-safe presentation).",
+        "The owner name line renders as part of the hero/title block (not only the footer) and is visible without scrolling.",
+        "If the user prefers reduced motion, both lines appear without animated reveal."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/landing/LetterByLetterTitle.tsx",
+          "operation": "modify",
+          "description": "Add support for rendering a second line for the owner (e.g., \"Created by Ashwath\") as part of the hero/title block; keep the existing letter-by-letter animation for the main title while ensuring that when reduced motion is preferred, both lines render immediately without animated reveal."
+        }
+      ]
+    },
+    {
+      "id": "REQ-20",
+      "summary": "Add an explicit, non-scroll-gated UI affordance on the title page to navigate to the gallery at \"/gallery\".",
+      "acceptanceCriteria": [
+        "From the title page, the user can navigate to the gallery via an explicit UI affordance (e.g., a subtle text link/button).",
+        "Navigation does not require scrolling/touch gestures to unlock/enter the gallery.",
+        "After navigating to the gallery, the gallery behaves as it does today."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/LandingPage.tsx",
+          "operation": "modify",
+          "description": "Add a clearly visible, explicit navigation control (button/link) within the hero area that calls the provided onNavigate and routes the user to \"/gallery\" without any scroll-to-enter gating; keep all user-facing text in English."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire the title-page navigation control to update the active route to \"/gallery\" and reflect it in the browser path, without introducing any scroll-based gating behavior."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "kind": "build_request",
+  "title": "Add a Title Page that Shows App Name and Owner Name",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-18",
+      "text": "Make the app open on a dedicated title page at route \"/\" that prominently displays the project/app name and the owner name, in English.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "add title page featuring the name and owner name"
+        ]
+      },
+      "acceptanceCriteria": [
+        "When the app loads, the first screen shown is the title page at route \"/\" (not the gallery).",
+        "The title page shows the app name \"ANIMEXIS\" prominently.",
+        "The title page shows the owner name prominently (not only in the footer) in English (e.g., \"Created by Ashwath\")."
+      ]
+    },
+    {
+      "id": "REQ-19",
+      "text": "Update the existing letter-by-letter title component to support rendering both the app name and an owner-name line (subtitle or secondary line) as part of the title-page hero content.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "add title page featuring the name and owner name"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The title (\"ANIMEXIS\") still renders with the existing letter-by-letter reveal behavior (or an equivalent reduced-motion-safe presentation).",
+        "The owner name line renders as part of the hero/title block (not only the footer) and is visible without scrolling.",
+        "If the user prefers reduced motion, both lines appear without animated reveal."
+      ]
+    },
+    {
+      "id": "REQ-20",
+      "text": "Provide a clear, non-scroll-gated way to proceed from the title page to the existing gallery page (\"/gallery\") without reintroducing scroll-to-enter gating.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "add title page featuring the name and owner name"
+        ]
+      },
+      "acceptanceCriteria": [
+        "From the title page, the user can navigate to the gallery via an explicit UI affordance (e.g., a subtle text link/button).",
+        "Navigation does not require scrolling/touch gestures to unlock/enter the gallery.",
+        "After navigating to the gallery, the gallery behaves as it does today."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not edit files under frontend/src/components/ui (read-only).",
+    "Do not modify immutable hook files listed in SYSTEM_CONTEXT (compose around them if needed).",
+    "Keep all user-facing text in English."
+  ],
+  "nonGoals": [
+    "No backend/canister changes.",
+    "No changes to the anime data model or gallery section layout beyond what is needed to support the new title page.",
+    "No third-party authentication or external integrations."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}

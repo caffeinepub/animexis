@@ -1,0 +1,42 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-10T13:16:03.031Z",
+  "summary": "Diff adds a landing/title page with prominent ANIMEXIS + owner line and an explicit \"Enter Gallery\" button, and switches App to render landing first. However, routing is implemented via internal React state rather than actual URL routes (\"/\" and \"/gallery\"), so the app may not truly open at route \"/\" nor navigate to \"/gallery\" in the browser address bar/history as required.",
+  "missing_requirements": [
+    {
+      "id": "REQ-18",
+      "requirement": "Make the app open on a dedicated title page at route \"/\" (and not the gallery).",
+      "reason": "The app initializes a local `currentRoute` state to '/' but does not implement real URL-based routing; there is no evidence that the browser route/path is set to \"/\" or that direct navigation/bookmarking works.",
+      "evidence": [
+        "frontend/src/App.tsx"
+      ]
+    },
+    {
+      "id": "REQ-20",
+      "requirement": "Proceed from the title page to the existing gallery page at route \"/gallery\" via a clear UI affordance (no scroll gating).",
+      "reason": "The title page provides a button that calls `onNavigate`, but navigation only updates local component state and does not change the URL to \"/gallery\" (no pushState/router usage shown).",
+      "evidence": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/LandingPage.tsx"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Adds an extra subtitle line \"An Abstract Archive of Anime Worlds\" to the title hero content.",
+      "reason": "BuildRequest only asks to display the app name and owner name prominently; no subtitle text was requested.",
+      "evidence": [
+        "frontend/src/components/landing/LetterByLetterTitle.tsx"
+      ]
+    }
+  ],
+  "confidence": 0.72,
+  "changed_files": [
+    "frontend-file-summaries.txt",
+    "frontend/src/App.tsx",
+    "frontend/src/components/landing/LetterByLetterTitle.tsx",
+    "frontend/src/pages/LandingPage.tsx",
+    "project_state.json"
+  ]
+}

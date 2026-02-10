@@ -1,0 +1,63 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-10T13:16:03.034Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 3,
+    "implemented": 3,
+    "items": [
+      {
+        "id": "REQ-18",
+        "summary": "Make the app open on a dedicated title page at route \"/\" that prominently displays the project/app name and the owner name, in English.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-19",
+        "summary": "Update the existing letter-by-letter title component to support rendering both the app name and an owner-name line (subtitle or secondary line) as part of the title-page hero content.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/landing/LetterByLetterTitle.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/landing/LetterByLetterTitle.tsx"
+        ]
+      },
+      {
+        "id": "REQ-20",
+        "summary": "Provide a clear, non-scroll-gated way to proceed from the title page to the existing gallery page (\"/gallery\") without reintroducing scroll-to-enter gating.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/LandingPage.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/LandingPage.tsx",
+          "frontend/src/App.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "build-request.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/App.tsx",
+    "frontend/src/components/landing/LetterByLetterTitle.tsx",
+    "frontend/src/pages/LandingPage.tsx",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

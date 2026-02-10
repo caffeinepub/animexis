@@ -1,0 +1,245 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 13,
+  "summary": "ANIMEXIS — a cinematic, dark-mode, scroll-driven web experience that presents anime as emotion/motion (no clips, spoilers, or clutter). Includes a landing page with ambient motion and a main vertical full-screen anime gallery where each anime has a 200-word cinematic summary, poster/hero image, color+motion identity, and a looping abstract animation.",
+  "architectural_notes": [
+    "Tech stack direction: Next.js/React frontend with Tailwind CSS and Framer Motion; animations via CSS/SVG minimum with optional Canvas/WebGL/Three.js.",
+    "Design constraints: no episode clips, no spoilers, no clutter; dark-mode only; scroll-driven storytelling.",
+    "Data model per anime: title, ~200-word cinematic summary, poster URL, color palette, animation preset; designed to scale to 100+ entries.",
+    "Footer attribution requirement changed: remove caffeine.ai attribution (“Built with love using caffeine.ai”) and replace with “Copyright 2026 ANIMEXIS” plus creator credit text.",
+    "Landing page requirement change: remove the “Scroll to Enter” prompt / scroll-gated entry; use a normal landing experience instead."
+  ],
+  "known_issues": [
+    "Potential conflict: earlier requirement said to keep the existing caffeine.ai link/UTM parameters; user now requests removing it.",
+    "Frontend shows error: \"failed to load anime data\" (likely backend API/data fetch failure)."
+  ],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-create-a-landing-page-route-that-acts-as-an-emotional-hook-near-black-dark-background-with-a-subtle-grain-look-slow-animated-gradient-fog-a-title-that-fades-in-letter-by-letter-and-a-scroll-to-enter-prompt-with-no-clickable-button-ui",
+      "title": "Create a Landing page (route: \"/\") that acts as an emotional hook: near-black dark background with a subtle grain look, slow animated gradient fog, a title that fades in letter-by-letter, and a “Scroll to Enter” prompt with no clickable button UI.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-ambient-landing-animations-floating-particles-and-subtle-parallax-depth-that-respond-gently-to-cursor-touch-scroll-maintaining-an-ambient-non-distracting-feel",
+      "title": "Implement ambient landing animations: floating particles and subtle parallax depth that respond gently to cursor/touch/scroll, maintaining an ambient, non-distracting feel.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-an-anime-gallery-page-route-gallery-as-the-main-experience-a-vertical-cinematic-scroll-where-each-anime-is-a-full-screen-section-each-section-includes-an-abstract-animation-canvas-on-the-left-center-and-the-anime-title-200-word-cinematic-summary-on-the-right-bottom-background-uses-a-genre-based-color-theme-sections-reveal-smoothly-on-scroll-with-no-hard-cuts",
+      "title": "Create an Anime Gallery page (route: \"/gallery\") as the main experience: a vertical cinematic scroll where each anime is a full-screen section; each section includes an abstract animation canvas on the left/center and the anime title + ~200-word cinematic summary on the right/bottom; background uses a genre-based color theme; sections reveal smoothly on scroll with no hard cuts.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-define-and-enforce-a-global-ui-system-dark-mode-only-glassmorphism-blur-panels-for-text-content-cinematic-typography-pairing-distinct-title-vs-body-ease-in-out-motion-defaults-hover-interactions-that-produce-a-soft-glow-scroll-should-feel-like-story-progression-also-add-one-coherent-visual-theme-color-tokens-type-scale-spacing-shadows-and-apply-it-consistently-across-the-landing-gallery",
+      "title": "Define and enforce a global UI system: dark-mode only; glassmorphism blur panels for text content; cinematic typography pairing (distinct title vs body); ease-in-out motion defaults; hover interactions that produce a soft glow; scroll should feel like “story progression”. Also add one coherent visual theme (color tokens, type scale, spacing, shadows) and apply it consistently across the landing + gallery.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-an-abstract-looping-animation-system-with-named-presets-e-g-energy-waves-particle-fields-ink-splashes-glitch-distortion-soft-liquid-gradients-light-streaks-grain-blur-layers-each-anime-entry-must-reference-exactly-one-preset-animations-must-be-non-literal-no-scene-recreation-and-loop-seamlessly",
+      "title": "Implement an abstract looping animation system with named presets (e.g., energy waves, particle fields, ink splashes, glitch distortion, soft liquid gradients, light streaks, grain/blur layers). Each anime entry must reference exactly one preset; animations must be non-literal (no scene recreation) and loop seamlessly.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-scalable-content-data-model-for-anime-entries-with-fields-title-200-word-spoiler-free-cinematic-summary-poster-url-or-static-asset-path-color-palette-animation-preset-and-genre-category-seed-the-app-with-the-provided-30-anime-list-and-ensure-it-can-scale-to-100-entries-without-changing-the-ui-architecture",
+      "title": "Create a scalable content/data model for anime entries with fields: title, ~200-word spoiler-free cinematic summary, poster URL (or static asset path), color palette, animation preset, and genre/category. Seed the app with the provided 30 anime list and ensure it can scale to 100+ entries without changing the UI architecture.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-performance-and-responsiveness-lazy-load-poster-images-avoid-video-autoplay-entirely-target-smooth-60fps-feeling-motion-use-gpu-friendly-transforms-and-provide-a-mobile-responsive-layout-with-simplified-animations-reduced-particle-density-effects-and-respect-user-reduced-motion-preferences",
+      "title": "Performance and responsiveness: lazy-load poster images, avoid video autoplay entirely, target smooth 60fps-feeling motion, use GPU-friendly transforms, and provide a mobile-responsive layout with simplified animations (reduced particle density/effects) and respect user “reduced motion” preferences.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-required-generated-static-images-to-the-project-and-render-them-as-static-assets-from-frontend-public-assets-generated-do-not-serve-images-through-the-backend",
+      "title": "Add required generated static images to the project and render them as static assets from frontend/public/assets/generated (do not serve images through the backend).",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-visible-creator-credit-line-with-the-exact-text-created-by-r-ashwath-reddy-to-the-app-ui-user-facing-english-text",
+      "title": "Add a visible creator credit line with the exact text “Created by R. Ashwath Reddy” to the app UI (user-facing, English text).",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-existing-footer-attribution-block-to-include-the-creator-credit-alongside-the-current-copyright-built-with-caffeine-ai-text-without-removing-the-existing-caffeine-ai-link-or-its-utm-parameters",
+      "title": "Update the existing footer attribution block to include the creator credit alongside the current copyright/“Built with … caffeine.ai” text, without removing the existing caffeine.ai link or its UTM parameters.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-app-footer-attribution-block-to-remove-the-entire-built-with-love-using-caffeine-ai-text-and-remove-the-caffeine-ai-link-completely-and-instead-display-exactly-copyright-2026-animexis",
+      "title": "Update the app footer attribution block to remove the entire “Built with love/❤️ using caffeine.ai” text and remove the caffeine.ai link completely, and instead display exactly: “Copyright 2026 ANIMEXIS”.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-footer-creator-credit-line-to-display-exactly-created-by-ashwath",
+      "title": "Update the footer creator credit line to display exactly: “Created by Ashwath”.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-the-scroll-to-enter-ui-from-the-landing-page-so-it-is-no-longer-rendered",
+      "title": "Remove the “Scroll to Enter” UI from the landing page so it is no longer rendered.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-the-scroll-touch-driven-navigation-gating-on-the-landing-page-and-make-the-app-open-in-a-normal-way-no-requirement-to-scroll-touch-to-enter-the-gallery",
+      "title": "Remove the scroll/touch-driven navigation gating on the landing page and make the app open in a normal way (no requirement to scroll/touch to enter the gallery).",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-harden-the-frontend-anime-list-query-so-that-it-does-not-get-stuck-in-a-permanent-error-state-for-recoverable-backend-initialization-issues-keep-the-existing-error-text-failed-to-load-anime-data-but-ensure-the-query-attempts-the-existing-initialize-then-refetch-flow-only-when-the-backend-successfully-returns-an-empty-list-not-when-the-call-fails-rejects",
+      "title": "Harden the frontend anime list query so that it does not get stuck in a permanent error state for recoverable backend initialization issues: keep the existing error text “Failed to load anime data”, but ensure the query attempts the existing initialize-then-refetch flow only when the backend successfully returns an empty list (not when the call fails/rejects).",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-make-the-app-open-on-a-dedicated-title-page-at-route-that-prominently-displays-the-project-app-name-and-the-owner-name-in-english",
+      "title": "Make the app open on a dedicated title page at route \"/\" that prominently displays the project/app name and the owner name, in English.",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-existing-letter-by-letter-title-component-to-support-rendering-both-the-app-name-and-an-owner-name-line-subtitle-or-secondary-line-as-part-of-the-title-page-hero-content",
+      "title": "Update the existing letter-by-letter title component to support rendering both the app name and an owner-name line (subtitle or secondary line) as part of the title-page hero content.",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-provide-a-clear-non-scroll-gated-way-to-proceed-from-the-title-page-to-the-existing-gallery-page-gallery-without-reintroducing-scroll-to-enter-gating",
+      "title": "Provide a clear, non-scroll-gated way to proceed from the title page to the existing gallery page (\"/gallery\") without reintroducing scroll-to-enter gating.",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Build Landing Page with dark grain background, animated gradient fog, letter-by-letter title reveal, and 'Scroll to Enter' prompt (no buttons); ambient particles/parallax.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Build Anime Gallery main experience: vertical cinematic scroll with full-screen sections; abstract animation canvas + anime name and ~200-word summary; genre-based background themes; smooth scroll reveals.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Implement global UI system: dark-mode only, glassmorphism/blur panels, cinematic typography, ease-in-out motion, hover glow interactions, scroll-driven progression.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Create abstract looping animation system per anime (non-literal): presets like energy waves, particles, ink, glitch, liquid gradients, light streaks, grain/blur; built with CSS/SVG/Framer Motion and optional Canvas/WebGL/Three.js.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Create scalable content/data model for anime entries (title, 200-word summary, poster URL, color palette, animation preset) seeded with the provided 30+ anime list; support growth to 100+ items.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Performance & responsiveness requirements: lazy-load/optimize posters, no video autoplay, target 60fps with GPU-friendly effects, mobile-responsive with simplified animations.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-13",
+      "summary": "Implement backend APIs in the single Motoko main actor to serve anime data to the frontend: list all anime, get anime by id/slug, and expose a simple version/info method for debugging. Persist the seeded dataset in stable state so it survives canister upgrades.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-14",
+      "summary": "Add a creator credit line displaying “Created by R. Ashwath Reddy” (e.g., on the landing page and/or persistent footer).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-15",
+      "summary": "Update footer attribution: remove the “Built with love using caffeine.ai” text/link and replace with “Copyright 2026 ANIMEXIS” plus a creator credit line (“Created by Ashwath”).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-16",
+      "summary": "Update landing page UX to remove the “Scroll to Enter” prompt and make the entry/hero behavior “normal” (no scroll-to-enter gating).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-17",
+      "summary": "Fix the backend anime data source so the frontend call `actor.getAllAnime()` succeeds and returns a non-empty list after initialization. Ensure the backend exposes a `getAllAnime` method matching the frontend expectation in `frontend/src/hooks/useAnimeList.ts`, and ensure `initialize()` actually persists the seeded anime entries so subsequent `getAllAnime()` calls return them.",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-18",
+      "summary": "Add a title page that prominently features the project/app name and the owner name (creator).",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "ANIMEXIS",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

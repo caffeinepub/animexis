@@ -1,0 +1,22 @@
+{
+  "frontend/src/App.tsx": "Main app component that enforces dark mode, manages simple client-side routing between landing and gallery pages, and initializes with the landing page route (\"/\") by default.",
+  "frontend/src/pages/LandingPage.tsx": "Landing page with dark background, grain overlay, animated fog gradients, letter-by-letter title reveal with owner name, ambient particles, parallax layers, explicit \"Enter Gallery\" navigation button, and footer pinned to the bottom.",
+  "frontend/src/pages/GalleryPage.tsx": "Main gallery page that fetches anime data from backend and renders full-screen anime sections with loading/error states, displaying \"Failed to load anime data\" on query errors.",
+  "frontend/src/components/landing/LetterByLetterTitle.tsx": "Animated title component that reveals \"ANIMEXIS\" letter-by-letter with staggered fade-in effects, displays subtitle, and prominently shows owner name \"Created by Ashwath\" in the hero area with reduced motion support.",
+  "frontend/src/components/landing/ScrollToEnterPrompt.tsx": "Non-interactive scroll affordance component displaying \"Scroll to Enter\" text with animated chevron icon.",
+  "frontend/src/components/landing/AmbientParticlesCanvas.tsx": "Canvas-based ambient particle system with adaptive density for mobile/coarse pointer devices and reduced motion support (fixed useRef initialization).",
+  "frontend/src/components/landing/ParallaxLayers.tsx": "Parallax wrapper component that applies subtle mouse-driven transform effects to child content with reduced motion fallback.",
+  "frontend/src/components/gallery/AnimeSection.tsx": "Full-screen anime section component with abstract animation canvas, poster image, glassmorphism text panel, genre-based background gradient, and intersection-observer-based reveal animation.",
+  "frontend/src/components/gallery/GlassPanel.tsx": "Reusable glassmorphism panel wrapper with backdrop blur, translucent background, and consistent border/shadow styling.",
+  "frontend/src/components/gallery/AnimePoster.tsx": "Lazy-loaded anime poster image component with error handling, loading state, and fallback to placeholder image.",
+  "frontend/src/components/animations/AbstractAnimationCanvas.tsx": "Reusable canvas animation component that selects and renders preset-based looping abstract animations with visibility detection and performance optimizations (fixed useRef initialization).",
+  "frontend/src/components/animations/presets.ts": "Collection of abstract animation preset renderers (energy waves, particle fields, ink splash, glitch, liquid gradients, light streaks) mapped to anime genres.",
+  "frontend/src/components/Footer.tsx": "Footer component with fixed copyright \"2026 ANIMEXIS\" and creator credit \"Created by Ashwath\", with no external attribution links.",
+  "frontend/src/hooks/useAnimeList.ts": "React Query hook that fetches anime list from backend, automatically initializes backend only when getAllAnime successfully returns an empty array, with retry logic and proper error propagation.",
+  "frontend/src/hooks/usePrefersReducedMotion.ts": "Custom hook that detects user's reduced motion preference via media query and updates on changes.",
+  "frontend/src/hooks/useIsCoarsePointer.ts": "Custom hook that detects coarse pointer devices (touch screens) via media query for adaptive UI complexity.",
+  "frontend/src/types/anime.ts": "Type exports re-exporting AnimeEntry and ColorPalette types from backend interface for frontend use.",
+  "frontend/index.css": "Global styles with OKLCH dark-mode color system, cinematic typography scale (Playfair Display + Inter), glassmorphism utilities, fog animations, glow effects, and reduced motion support.",
+  "frontend/tailwind.config.js": "Tailwind configuration extending theme with custom fonts (Playfair Display, Inter), glow shadows, fog animation keyframes, and ANIMEXIS design tokens.",
+  "frontend/src/main.tsx": "Application entry point that sets up React Query and Internet Identity providers, renders the root App component, and imports global styles from ./index.css."
+}
